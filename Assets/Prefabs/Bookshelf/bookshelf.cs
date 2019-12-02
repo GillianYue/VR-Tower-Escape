@@ -19,6 +19,9 @@ public class bookshelf : MonoBehaviour
     public AudioSource bookSnapSE, bookshelfSlideSE;
 	public GameObject portal;
 
+    public OVRInput.Controller rightController;
+    private MagicalNotes note;
+
     void Start()
     {
         slotWidth = slotPrefab.transform.localScale.x * slotPrefab.transform.GetChild(0).localScale.x + 0.01f;
@@ -50,15 +53,9 @@ public class bookshelf : MonoBehaviour
 
         genSlotHighlights();
 
-		portal.SetActive(false);
-
-        //char[] topParams = new char[3], midParams = new char[3], botParams = new char[4];
-        //topParams[0] = 'r'; topParams[1] = 'b'; topParams[2] = 'g'; midParams[0] = 'g';
-        //midParams[1] = 'r'; midParams[2] = 'b'; botParams[0] = 'b'; botParams[1] = 'g';
-        //botParams[2] = 'r'; botParams[3] = 'b';
-        //genBooks(topParams, midParams, botParams);
-
-
+        note = GameObject.FindGameObjectWithTag("note").GetComponent<MagicalNotes>();
+        rightController = OVRInput.Controller.RTouch;
+        portal.SetActive(false);
     }
 
     public void checkSnapBook()
@@ -89,6 +86,7 @@ public class bookshelf : MonoBehaviour
             }
 
             bookSnapSE.Play();
+            HapticManager.singleton.TriggerVibration(40, 2, 255, rightController);
 
             sc.setCheckCollide(false);
             slotHighlight.enabled = false;
@@ -109,7 +107,7 @@ public class bookshelf : MonoBehaviour
                 StartCoroutine(bb.bookMove());
             }
             StartCoroutine(bookshelfMove());
-            bookshelfSlideSE.Play();
+            //bookshelfSlideSE.Play();
         }
 
     }
@@ -123,9 +121,17 @@ public class bookshelf : MonoBehaviour
 
         for(float i=0; i<=1; i += 0.01f)
         {
-            transform.position = Vector3.Lerp(startPos, endPos, i);
+           //transform.position = Vector3.Lerp(startPos, endPos, i);
             yield return new WaitForSeconds(0.02f);
         }
+
+        StartCoroutine(changeNoteMatToCongrats());
+    }
+
+    IEnumerator changeNoteMatToCongrats()
+    {
+        yield return new WaitForSeconds(1);
+        note.changeMat(4);
     }
 
     public void activateSlotHighlight(bool status, int shelfIndex, int bookIndex)

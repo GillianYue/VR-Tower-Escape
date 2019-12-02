@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class portalToOtherRoom : MonoBehaviour
 {
-	public Vector3 teleportTo;
+    private bool teleported;
+    public string ringSceneName;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        teleported = false;
     }
 
     // Update is called once per frame
@@ -20,9 +22,17 @@ public class portalToOtherRoom : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Player")
+		if (!teleported && other.gameObject.tag == "Player")
 		{
-			other.gameObject.transform.position = teleportTo;
+            StartCoroutine(endTeleport());
 		}
 	}
+
+    private IEnumerator endTeleport()
+    {
+        teleported = true;
+        //can call ghost to say things here
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(ringSceneName, LoadSceneMode.Single); ///////will load ring scene, END of game
+    }
 }

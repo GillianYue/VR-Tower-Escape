@@ -14,7 +14,7 @@ public class bookBehav : MonoBehaviour
 
         for (float i = 0; i <= 1; i += 0.01f)
         {
-            transform.position = Vector3.Lerp(startPos, endPos, i);
+            //transform.position = Vector3.Lerp(startPos, endPos, i);
             yield return new WaitForSeconds(0.02f);
         }
     }

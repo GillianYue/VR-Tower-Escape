@@ -8,10 +8,13 @@ public class checkBookSnap : MonoBehaviour
     private bool prevGrab;
 
     public bookshelf bShelf;
+    public OVRInput.Controller rightController;
+
+    public GameObject torch;
 
     void Start()
     {
-
+        torch.GetComponent<Rigidbody>().useGravity = false;
     }
 
     // Update is called once per frame
@@ -22,8 +25,19 @@ public class checkBookSnap : MonoBehaviour
         if (!currGrab && prevGrab) //just let go of an obj
         {
            bShelf.checkSnapBook();
-            ///////DEBUG.LOG
         }
+        if((!prevGrab) && currGrab) //just grabbed onto an obj
+        {
+            HapticManager.singleton.TriggerVibration(40, 2, 255, grabber.GetController());
+            if (gb.tag.Equals("torch"))
+            {
+                torch.GetComponent<Rigidbody>().useGravity = true;
+            }
+        }
+
+
         prevGrab = currGrab;
+
+
     }
 }
