@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Vaseline" size="21.000000 28.000000" />
+    <ImageTarget name="TheOneWhoLeft" size="21.000000 38.276970" />
+    <ImageTarget name="TheOneWhoLeftDescription" size="21.000000 5.042188" />
+    <ImageTarget name="TakingtheOath" size="21.000000 36.693180" />
+    <ImageTarget name="TakingtheOathDescription" size="21.000000 45.358990" />
+    <ImageTarget name="Poplar" size="21.000000 15.750000" />
+    <ImageTarget name="PoplarDescription" size="21.000000 31.479591" />
+    <ImageTarget name="Medusa" size="21.000000 32.581329" />
+    <ImageTarget name="MedusaDescription2" size="21.000000 38.430786" />
+    <ImageTarget name="MedusaDescription1" size="21.000000 37.920063" />
+    <ImageTarget name="Larrakitj" size="21.000000 15.750000" />
+    <ImageTarget name="LarrakitjDescription5" size="21.000000 9.407727" />
+    <ImageTarget name="LarrakitjDescription4" size="21.000000 14.039721" />
+    <ImageTarget name="LarrakitjDescription3" size="21.000000 15.206897" />
+    <ImageTarget name="LarrakitjDescription2" size="21.000000 10.088660" />
+    <ImageTarget name="LarrakitjDescription1" size="21.000000 47.234604" />
+    <ImageTarget name="HeadofaGod" size="21.000000 33.293270" />
+    <ImageTarget name="HeadofaGodDescription" size="21.000000 6.582681" />
+    <ImageTarget name="CelestialWoman" size="21.000000 58.837696" />
+    <ImageTarget name="CelestialWomanDescription" size="21.000000 6.589126" />
+    <ImageTarget name="Cache" size="21.000000 15.750000" />
+    <ImageTarget name="CacheDescription4" size="21.000000 37.694851" />
+    <ImageTarget name="CacheDescription3" size="21.000000 54.682114" />
+    <ImageTarget name="CacheDescription2" size="21.000000 26.716446" />
+    <ImageTarget name="CacheDescription1" size="21.000000 38.868195" />
+  </Tracking>
+</QCARConfig>
